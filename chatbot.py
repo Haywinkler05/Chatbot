@@ -1,7 +1,7 @@
 import ruleBased
 
 
-class chatbot:
+class Chatbot:
     def __init__(self):
         self.userInput = ""
         self.response = ""

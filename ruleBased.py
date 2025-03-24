@@ -28,5 +28,15 @@ def UserQuestion():
 def ChatbotResponse(userInput):
     for pattern, response in responses.items():
         if pattern in userInput:
-            return response
-    return responses["default"]
+            return response 
+        if(userInput == "rules"):
+            listRules()
+            return
+    return responses["default"] 
+
+
+def listRules():
+    print("Here are the avaliable rules...")
+    for rules in responses.keys():
+        print(f"- {rules}")
+    return

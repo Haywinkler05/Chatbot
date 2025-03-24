@@ -1,5 +1,5 @@
 from user import User
-
+from chatbot import Chatbot
 
 def GetTime():
     import datetime
@@ -14,7 +14,17 @@ def setUserClass():
 
 def main():
     user = setUserClass()
-    print(f"Current user session. Current user: {user.getName()}. Current Time: {user.getTime()}")
+    chat = Chatbot()
+    mode = int(input("Please type 1 for rule based and 2 for Naive bayes: "))
+    if(mode == 1):
+        print("You choose rule based mode. Type rules for a list of commands the chatbot can make")
+        while(1):
+            chat.ruleBased()
+            if("bye" in chat.getUserInput()):
+                print("Chatbot: goodbye!")
+                break
+            print(chat.getResponse())
+    
     
 
 
