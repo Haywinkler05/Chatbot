@@ -15,7 +15,7 @@ def setUserClass():
 def main():
     user = setUserClass()
     chat = Chatbot()
-    mode = int(input("Please type 1 for rule based and 2 for Naive bayes: "))
+    mode = int(input("Please type 1 for rule based and 2 for Naive bayes or 3 for both options: "))
     if(mode == 1):
         print("You choose rule based mode. Type rules for a list of commands the chatbot can make")
         while(1):
@@ -24,10 +24,12 @@ def main():
                 print("Chatbot: goodbye!")
                 break
             print(chat.getResponse())
-    
-    
-
-
+    elif(mode == 2):
+        print("You choose Naive Bayes mode")
+        print("Working on this now...")
+    else:
+        print("You choose both options...")
+        print("Not started on this yet...")
     return
 
 
