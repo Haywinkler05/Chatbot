@@ -1,0 +1,18 @@
+[
+    {
+        "intent": "Greetings",
+        "examples": ["Hi", "Hello", "Greetings", "Hey", "Howdy"]
+    },
+    {
+        "intent" : "Goodbye",
+        "examples" : ["Goodbye", "Bye", "Farewell", "See you"]
+    },
+    {
+        "intent" : "Jokes",
+        "examples" : ["Tell me a joke", "Make me laugh", "Joke"]
+    },
+    {
+        "intent" : "Thanks",
+        "examples" : ["Thanks", "Thank you", "Thanks a lot"]
+    }
+]
