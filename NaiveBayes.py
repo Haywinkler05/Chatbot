@@ -2,6 +2,7 @@ import json
 import string
 from sklearn.feature_extraction.text import TfidfVectorizer
 from collections import Counter
+import math
 
 def trainData(): #This function opens, organizes and closes our custom dataset
     f = open("data.json")
@@ -27,16 +28,9 @@ def processText(inputs): #This cleans up the words from the text by making it al
     return inputs
 
 
-def featureExtract(inputs, labels): #This is vectorizing all our words
-    vectorizor = TfidfVectorizer()
 
-    X = vectorizor.fit_transform(inputs)
 
-    
-
-    return X, inputs, labels
-
-def naiveBayes(X, inputs, labels):
+def naiveBayes( inputs, labels):
     labelCounts = Counter(labels) #This counts our labels
     
     priorProb = {intent: count / len(inputs) for intent, count in labelCounts.items()} #finds the probability of a word being one of the intents
@@ -49,23 +43,36 @@ def naiveBayes(X, inputs, labels):
         wordsPerCount[intent].update(words)
     uniqueWords = set()
 
-    for j in wordsPerCount.keys():#Finds the total sum of words per intent
-         totalWords = sum(wordsPerCount[j].values())
-         print(f"{j} : {totalWords}")
+    uniqueWords = set(word for sentence in inputs for word in sentence.split()) #makes a set of all unique words
+    vocabSize = len(uniqueWords) #Gets the vocab size
+
+    likelyhood = {}
+    for intents, wordCount in wordsPerCount.items():#Finds the total sum of words per intent
+         totalWords = sum(wordsPerCount[intents].values())
+         likelyhood[intents] = {
+             word : (wordCount[word] + 1) / (totalWords + vocabSize) for word in uniqueWords
+         }
     
-    for sentence in range(len(inputs)): #Loops through and gets all unique words
-        unique = inputs[sentence].split()
-        for word in unique:
-            uniqueWords.add(word)
-    print(uniqueWords)
-    return 
+    return priorProb, likelyhood
 
-
+def classify(sentence, priorProb, likelyhood):
+    words = sentence.lower().translate(str.maketrans("","",string.punctuation))
+    scores = {}
+    for intent in priorProb:
+        logProb = math.log(priorProb[intent])
+        for word in words:
+            if word in likelyhood:
+                logProb += math.log(likelyhood[intent][word])
+        scores[intent] = logProb
+    return max(scores, key=scores.get)
+   
 def main():
     inputs, labels = trainData()
     inputs = processText(inputs)
-    X, inputs, labels = featureExtract(inputs, labels)
-    naiveBayes(X, inputs, labels)
+    priorProb, likelyhood = naiveBayes(inputs, labels)
+    testSentence = "Hey! how are you doing?"
+    prediction = classify(testSentence, priorProb, likelyhood)
+    print(f"Predicted intent for {testSentence}: {prediction}")
 
 
     return
