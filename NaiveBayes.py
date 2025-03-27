@@ -33,7 +33,7 @@ def processText(inputs): #This cleans up the words from the text by making it al
 def naiveBayes( inputs, labels):
     labelCounts = Counter(labels) #This counts our labels
     
-    priorProb = {intent: count / len(inputs) for intent, count in labelCounts.items()} #finds the probability of a word being one of the intents
+    priorProb = {intent: labelCounts[intent] / len(labels) for intent in labelCounts} #finds the probability of a word being one of the intents
 
 
     wordsPerCount = {intent: Counter() for intent in set(labels)}#Makes a dictonary showing how many times words repeat themselves per intent
@@ -56,20 +56,30 @@ def naiveBayes( inputs, labels):
     return priorProb, likelyhood
 
 def classify(sentence, priorProb, likelyhood):
-    words = sentence.lower().translate(str.maketrans("","",string.punctuation)) #Adjusts user words
+    wordLog = 0
+    words = sentence.lower().translate(str.maketrans("","",string.punctuation)).split() #Adjusts user words
     scores = {} #Creates score dictonary
+    all_unique_words = set()
+    for intent_likelihood in likelyhood.values():
+        all_unique_words.update(intent_likelihood.keys())
+    vocab_size = len(all_unique_words)
+
     for intent in priorProb: #Loops through the prior probability
         logProb = math.log(priorProb[intent])
+        intent_word_counts = sum(list(likelyhood.get(intent, {}).values())) + vocab_size # For Laplace smoothing denominator
+
         for word in words:
-            if word in likelyhood:
-                logProb += math.log(likelyhood[intent][word]) #If a word in user input matches the unique words in likelyhood, does the probability and adds it to the score
-        scores[intent] = logProb #Sets the intent with the probabilty of the word being that intent
+            word_likelihood = likelyhood.get(intent, {}).get(word, 1 / intent_word_counts if intent_word_counts > 0 else 0) # Laplace smoothing for unseen words
+            wordLog = math.log(word_likelihood) if word_likelihood > 0 else 0
+            logProb += wordLog
+        scores[intent] = logProb #Sets the intent with the probability of the word being that intent
     return max(scores, key=scores.get) #Finds the highest score and the intent with it
    
 def main():
     inputs, labels = trainData() #Loads data
     inputs = processText(inputs)#Processes it 
     priorProb, likelyhood = naiveBayes(inputs, labels) #Calculates
+    print(priorProb)
     testSentence = input("You: ")
     prediction = classify(testSentence, priorProb, likelyhood) #Predicts
     print(f"Predicted intent for {testSentence}: {prediction}") #prints prediction

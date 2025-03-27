@@ -1,18 +1,91 @@
 [
     {
         "intent": "Greetings",
-        "examples": ["Hi", "Hello", "Greetings", "Hey", "Howdy"]
+        "examples": [
+            "Hi",
+            "Hello",
+            "Greetings",
+            "Hey",
+            "Howdy",
+            "What's up?",
+            "Good morning",
+            "Good evening",
+            "Yo",
+            "What's going on?",
+            "How's it going?",
+            "Hello, how are you?",
+            "Hi, nice to see you",
+            "How are you today?",
+            "Good to see you",
+            "Hey there, how are things?",
+            "Morning!",
+            "Evening!",
+            "How do you do?",
+            "What's new?"
+        ]
     },
     {
-        "intent" : "Goodbye",
-        "examples" : ["Goodbye", "Bye", "Farewell", "See you"]
+        "intent": "Goodbye",
+        "examples": [
+            "Goodbye",
+            "Bye",
+            "Farewell",
+            "See you later",
+            "Catch you later",
+            "Take care",
+            "Until next time",
+            "See ya",
+            "I'm out",
+            "Peace",
+            "Have a good one",
+            "Have a nice day",
+            "So long",
+            "Later",
+            "I'm leaving now",
+            "It was nice seeing you",
+            "Bye for now",
+            "Adios"
+        ]
     },
     {
-        "intent" : "Jokes",
-        "examples" : ["Tell me a joke", "Make me laugh", "Joke"]
+        "intent": "Jokes",
+        "examples": [
+            "Tell me a joke",
+            "Make me laugh",
+            "Joke",
+            "Crack a joke",
+            "Tell me something funny",
+            "I need a laugh",
+            "Do you know any jokes?",
+            "Tell me a funny one",
+            "Make me smile",
+            "Can you make me laugh?",
+            "Tell me a funny story",
+            "Give me a joke",
+            "What's the funniest thing you know?",
+            "Got any good jokes?",
+            "A funny story please",
+            "Entertain me with a joke"
+        ]
     },
     {
-        "intent" : "Thanks",
-        "examples" : ["Thanks", "Thank you", "Thanks a lot"]
+        "intent": "Thanks",
+        "examples": [
+            "Thanks",
+            "Thank you",
+            "Thanks a lot",
+            "I appreciate it",
+            "Thanks a million",
+            "Much appreciated",
+            "You're the best",
+            "I owe you one",
+            "Thanks for your help",
+            "Thanks so much",
+            "That's very kind of you, thanks",
+            "Thank you for your assistance",
+            "Grateful, thanks",
+            "Cheers, thanks",
+            "You've been a great help, thank you"
+        ]
     }
 ]
