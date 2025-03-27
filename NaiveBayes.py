@@ -47,7 +47,7 @@ def naiveBayes( inputs, labels):
     vocabSize = len(uniqueWords) #Gets the vocab size
 
     likelyhood = {}
-    for intents, wordCount in wordsPerCount.items():#Finds the total sum of words per intent
+    for intents, wordCount in wordsPerCount.items():#Finds the total sum of words per intent and does lapace smoothing to handle words not accounted for
          totalWords = sum(wordsPerCount[intents].values())
          likelyhood[intents] = {
              word : (wordCount[word] + 1) / (totalWords + vocabSize) for word in uniqueWords
@@ -56,23 +56,23 @@ def naiveBayes( inputs, labels):
     return priorProb, likelyhood
 
 def classify(sentence, priorProb, likelyhood):
-    words = sentence.lower().translate(str.maketrans("","",string.punctuation))
-    scores = {}
-    for intent in priorProb:
+    words = sentence.lower().translate(str.maketrans("","",string.punctuation)) #Adjusts user words
+    scores = {} #Creates score dictonary
+    for intent in priorProb: #Loops through the prior probability
         logProb = math.log(priorProb[intent])
         for word in words:
             if word in likelyhood:
-                logProb += math.log(likelyhood[intent][word])
-        scores[intent] = logProb
-    return max(scores, key=scores.get)
+                logProb += math.log(likelyhood[intent][word]) #If a word in user input matches the unique words in likelyhood, does the probability and adds it to the score
+        scores[intent] = logProb #Sets the intent with the probabilty of the word being that intent
+    return max(scores, key=scores.get) #Finds the highest score and the intent with it
    
 def main():
-    inputs, labels = trainData()
-    inputs = processText(inputs)
-    priorProb, likelyhood = naiveBayes(inputs, labels)
-    testSentence = "Hey! how are you doing?"
-    prediction = classify(testSentence, priorProb, likelyhood)
-    print(f"Predicted intent for {testSentence}: {prediction}")
+    inputs, labels = trainData() #Loads data
+    inputs = processText(inputs)#Processes it 
+    priorProb, likelyhood = naiveBayes(inputs, labels) #Calculates
+    testSentence = input("You: ")
+    prediction = classify(testSentence, priorProb, likelyhood) #Predicts
+    print(f"Predicted intent for {testSentence}: {prediction}") #prints prediction
 
 
     return
