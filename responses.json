@@ -1,0 +1,44 @@
+{
+    "intents": [
+      {
+        "intent": "Greetings",
+        "responses": [
+          "Hello there!",
+          "Hi!",
+          "Greetings!",
+          "Hey!",
+          "Nice to talk to you!"
+        ]
+      },
+      {
+        "intent": "Goodbye",
+        "responses": [
+          "Goodbye!",
+          "See you later!",
+          "Bye!",
+          "Take care!",
+          "Have a good one!"
+        ]
+      },
+      {
+        "intent": "Jokes",
+        "responses": [
+          "Why don't scientists trust atoms? Because they make up everything!",
+          "Parallel lines have so much in common... it’s a shame they’ll never meet.",
+          "Why did the scarecrow win an award? Because he was outstanding in his field!",
+          "Want to hear a construction joke? I'm still working on it.",
+          "Why did the bicycle fall over? Because it was two tired!"
+        ]
+      },
+      {
+        "intent": "Thanks",
+        "responses": [
+          "You're welcome!",
+          "No problem!",
+          "Glad I could help!",
+          "Any time!",
+          "My pleasure!"
+        ]
+      }
+    ]
+  }

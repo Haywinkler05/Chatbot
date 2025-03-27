@@ -26,9 +26,12 @@ def main():
             print(chat.getResponse())
     elif(mode == 2):
         print("You choose Naive Bayes mode")
-        setting = int(input("type 1 for handmade naive bayes, type 2 for premade naive bayes"))
+        setting = int(input("type 1 for handmade naive bayes, type 2 for premade naive bayes: "))
         if(setting == 1):
-            print("Implemeting now")
+            while(1):
+                chat.naiveBayes()
+                if("bye" in chat.getUserInput()):
+                    break
         else:
             print("Working on this...")
     else:

@@ -1,5 +1,5 @@
 import ruleBased
-
+import NaiveBayes
 
 class Chatbot:
     def __init__(self):
@@ -12,6 +12,9 @@ class Chatbot:
        self.userInput = ruleBased.UserQuestion()
        self.response = ruleBased.ChatbotResponse(self.userInput)
 
+    def naiveBayes(self):
+        self.userInput = NaiveBayes.UserQuestion()
+        NaiveBayes.run(self.userInput)
     def setUserInput(self, userInput):
         self.userInput = userInput
 

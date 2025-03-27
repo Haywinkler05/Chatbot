@@ -3,9 +3,16 @@ import string
 from sklearn.feature_extraction.text import TfidfVectorizer
 from collections import Counter
 import math
+import random
 
+
+def responseData():
+    f = open("responses.json")
+    dataset = json.load(f)
+    f.close()
+    return dataset["intents"]
 def trainData(): #This function opens, organizes and closes our custom dataset
-    f = open("data.json")
+    f = open("intents.json")
     dataset = json.load(f)
     inputs = []
     labels = []
@@ -74,21 +81,24 @@ def classify(sentence, priorProb, likelyhood):
             logProb += wordLog
         scores[intent] = logProb #Sets the intent with the probability of the word being that intent
     return max(scores, key=scores.get) #Finds the highest score and the intent with it
-   
-def main():
+
+
+def generateResponses(dataset, prediction):
+    for item in dataset:
+        if(item["intent"] == prediction):
+            responses = item.get("responses", [])
+            if responses:
+                return random.choice(responses)
+    return
+def UserQuestion():
+    userInput = input("You: ").lower()
+    return userInput
+
+def run(userInput):
     inputs, labels = trainData() #Loads data
     inputs = processText(inputs)#Processes it 
     priorProb, likelyhood = naiveBayes(inputs, labels) #Calculates
-    print(priorProb)
-    testSentence = input("You: ")
-    prediction = classify(testSentence, priorProb, likelyhood) #Predicts
-    print(f"Predicted intent for {testSentence}: {prediction}") #prints prediction
+    prediction = classify(userInput, priorProb, likelyhood) #Predicts
+    dataset = responseData()
+    print(generateResponses(dataset, prediction))
 
-
-    return
-
-
-
-
-if __name__ == "__main__":
-    main()
