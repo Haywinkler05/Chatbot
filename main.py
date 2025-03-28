@@ -35,8 +35,19 @@ def main():
         else:
             print("Working on this...")
     else:
-        print("You choose both options...")
-        print("Not started on this yet...")
+        from ruleBased import responses
+        while(1):
+            chat.ruleBased()
+            chatbotResponse = chat.getResponse()
+            if("bye" in chat.getUserInput()):
+                print("Chatbot: goodbye!")
+                break
+            if(chatbotResponse == responses["default"]):
+                print("Chatbot does not understand, switching to naive bayes mode. Please retype your input")
+                chat.naiveBayes()
+                print("Switching back to rule based mode")
+            else:
+                print(chatbotResponse)
     return
 
 

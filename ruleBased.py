@@ -1,3 +1,5 @@
+
+
 responses = {
     "hello": "Hi there! How can I assist you today?",
     "hi": "Hello! How can I help you?",
@@ -32,6 +34,7 @@ def ChatbotResponse(userInput):
         if(userInput == "rules"):
             listRules()
             return
+    
     return responses["default"] 
 
 

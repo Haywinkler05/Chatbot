@@ -15,6 +15,7 @@ class Chatbot:
     def naiveBayes(self):
         self.userInput = NaiveBayes.UserQuestion()
         NaiveBayes.run(self.userInput)
+
     def setUserInput(self, userInput):
         self.userInput = userInput
 
@@ -25,4 +26,5 @@ class Chatbot:
         return self.userInput
     
     def getResponse(self):
-        return self.response
+        return self.response 
+    
