@@ -4,15 +4,17 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from collections import Counter
 import math
 import random
+import specialResponses as sr
+
 
 
 def responseData():
-    f = open("responses.json")
+    f = open("responses.json", "r",  encoding="utf-8")
     dataset = json.load(f)
     f.close()
     return dataset["intents"]
 def trainData(): #This function opens, organizes and closes our custom dataset
-    f = open("intents.json")
+    f = open("intents.json", "r",  encoding="utf-8")
     dataset = json.load(f)
     inputs = []
     labels = []
@@ -83,22 +85,30 @@ def classify(sentence, priorProb, likelyhood):
     return max(scores, key=scores.get) #Finds the highest score and the intent with it
 
 
-def generateResponses(dataset, prediction):
+def generateResponses(dataset, prediction, user):
     for item in dataset:
         if(item["intent"] == prediction):
             responses = item.get("responses", [])
             if responses:
-                return random.choice(responses)
-    return
+                response = random.choice(responses)
+                if "[time]" in response:
+                    response = response.replace("[time]", sr.GetTime())
+                if "weather" in prediction.lower():
+                    lat, long = user.getLocation()
+                    weatherInfo = sr.getWeather(lat, long)
+                    response = response.replace("[weather]", weatherInfo)
+                return response 
+
+    return "Im not sure how to respond to that."
 def UserQuestion():
     userInput = input("You: ").lower()
     return userInput
 
-def run(userInput):
+def run(userInput, user):
     inputs, labels = trainData() #Loads data
     inputs = processText(inputs)#Processes it 
     priorProb, likelyhood = naiveBayes(inputs, labels) #Calculates
     prediction = classify(userInput, priorProb, likelyhood) #Predicts
     dataset = responseData()
-    print(generateResponses(dataset, prediction))
+    print(generateResponses(dataset, prediction, user))
 

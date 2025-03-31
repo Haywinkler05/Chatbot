@@ -44,7 +44,9 @@
             "I'm leaving now",
             "It was nice seeing you",
             "Bye for now",
-            "Adios"
+            "Adios",
+            "Goodnight",
+            "See you soon"
         ]
     },
     {
@@ -65,7 +67,11 @@
             "What's the funniest thing you know?",
             "Got any good jokes?",
             "A funny story please",
-            "Entertain me with a joke"
+            "Entertain me with a joke",
+            "I need some humor",
+            "Make me chuckle",
+            "Got any dad jokes?",
+            "Tell me a pun"
         ]
     },
     {
@@ -85,7 +91,87 @@
             "Thank you for your assistance",
             "Grateful, thanks",
             "Cheers, thanks",
-            "You've been a great help, thank you"
+            "You've been a great help, thank you",
+            "Big thanks!",
+            "Many thanks",
+            "Appreciate it!",
+            "I really appreciate it",
+            "Thanks for everything"
+        ]
+    },
+    {
+        "intent": "Weather",
+        "examples": [
+            "What's the weather like?",
+            "How's the weather?",
+            "Is it going to rain today?",
+            "Tell me the forecast",
+            "What's the temperature?",
+            "Is it sunny outside?",
+            "Is it cold today?",
+            "Will it snow today?",
+            "Do I need an umbrella?",
+            "What's the weather like tomorrow?",
+            "How hot is it?",
+            "Is it windy today?",
+            "What's the humidity like?",
+            "Give me a weather update",
+            "Tell me the weather for this weekend",
+            "How's the weather looking?",
+            "Is it foggy outside?",
+            "What's the chance of rain?",
+            "Will there be a storm?",
+            "Is it nice outside?"
+        ]
+    },
+    {
+        "intent": "Time",
+        "examples": [
+            "What time is it?",
+            "Can you tell me the time?",
+            "What's the current time?",
+            "Do you know the time?",
+            "Tell me the time",
+            "What hour is it?",
+            "Give me the time",
+            "What's the time now?",
+            "Can you check the time?",
+            "I need the time",
+            "Do you know what time it is?",
+            "Is it late?",
+            "How early is it?",
+            "What’s the exact time?",
+            "Clock check",
+            "What's the time in another time zone?",
+            "What time does the sun set?",
+            "What time does the sun rise?",
+            "How much time do I have left?",
+            "Tell me the time in UTC"
+        ]
+    },
+    {
+        "intent": "Food",
+        "examples": [
+            "I'm hungry",
+            "What should I eat?",
+            "Recommend me some food",
+            "What's for dinner?",
+            "What are some good snacks?",
+            "What’s a good breakfast?",
+            "Can you suggest a restaurant?",
+            "What’s your favorite food?",
+            "Give me a recipe",
+            "I need some food ideas",
+            "What's a quick meal to make?",
+            "Any food recommendations?",
+            "Tell me something tasty to eat",
+            "What’s for lunch?",
+            "What's a good dessert?",
+            "Should I eat healthy?",
+            "What’s your go-to meal?",
+            "What’s a popular dish?",
+            "Help me decide what to eat",
+            "What should I order?"
         ]
     }
 ]

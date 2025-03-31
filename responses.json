@@ -1,44 +1,109 @@
 {
-    "intents": [
+  "intents": [
       {
-        "intent": "Greetings",
-        "responses": [
-          "Hello there!",
-          "Hi!",
-          "Greetings!",
-          "Hey!",
-          "Nice to talk to you!"
-        ]
+          "intent": "Greetings",
+          "responses": [
+              "Hello there!",
+              "Hi!",
+              "Greetings!",
+              "Hey!",
+              "Nice to talk to you!",
+              "Howdy!",
+              "Hey there, how's it going?",
+              "Hi, how are you today?",
+              "Good to see you!",
+              "Hello! Hope you're having a great day!"
+          ]
       },
       {
-        "intent": "Goodbye",
-        "responses": [
-          "Goodbye!",
-          "See you later!",
-          "Bye!",
-          "Take care!",
-          "Have a good one!"
-        ]
+          "intent": "Goodbye",
+          "responses": [
+              "Goodbye!",
+              "See you later!",
+              "Bye!",
+              "Take care!",
+              "Have a good one!",
+              "Until next time!",
+              "So long!",
+              "See ya!",
+              "Catch you later!",
+              "Farewell!"
+          ]
       },
       {
-        "intent": "Jokes",
-        "responses": [
-          "Why don't scientists trust atoms? Because they make up everything!",
-          "Parallel lines have so much in common... it’s a shame they’ll never meet.",
-          "Why did the scarecrow win an award? Because he was outstanding in his field!",
-          "Want to hear a construction joke? I'm still working on it.",
-          "Why did the bicycle fall over? Because it was two tired!"
-        ]
+          "intent": "Jokes",
+          "responses": [
+              "Why don't scientists trust atoms? Because they make up everything!",
+              "Parallel lines have so much in common... it’s a shame they’ll never meet.",
+              "Why did the scarecrow win an award? Because he was outstanding in his field!",
+              "Want to hear a construction joke? I'm still working on it.",
+              "Why did the bicycle fall over? Because it was two tired!",
+              "Why can’t your nose be 12 inches long? Because then it would be a foot!",
+              "What do you call fake spaghetti? An impasta!",
+              "Why do cows have hooves instead of feet? Because they lactose!",
+              "Did you hear about the mathematician who’s afraid of negative numbers? He’ll stop at nothing to avoid them!",
+              "Why did the chicken go to the séance? To talk to the other side!"
+          ]
       },
       {
-        "intent": "Thanks",
-        "responses": [
-          "You're welcome!",
-          "No problem!",
-          "Glad I could help!",
-          "Any time!",
-          "My pleasure!"
-        ]
+          "intent": "Thanks",
+          "responses": [
+              "You're welcome!",
+              "No problem!",
+              "Glad I could help!",
+              "Any time!",
+              "My pleasure!",
+              "You're very welcome!",
+              "Don't mention it!",
+              "I'm happy to help!",
+              "Always happy to assist!",
+              "You're welcome! Let me know if you need anything else."
+          ]
+      },
+      {
+          "intent": "Weather",
+          "responses": [
+            "The current weather is [weather].",
+            "Weather update: [weather].",
+            "Right now, [weather].",
+            "Here's your weather report: [weather].",
+            "According to my data, [weather].",
+            "[weather]",
+            "The forecast says: [weather].",
+            "Expect: [weather].",
+            "The weather right now is [weather].",
+            "I can tell you the weather: [weather]."
+          ]
+      },
+      {
+          "intent": "Time",
+          "responses": [
+              "The current time is [time].",
+              "It's [time] right now.",
+              "Let me check... it's [time].",
+              "It's currently [time], hope that helps!",
+              "According to my clock, it's [time].",
+              "The time now is [time].",
+              "You're asking at exactly [time]!",
+              "Right now, it’s [time].",
+              "Tick-tock! It's [time].",
+              "I can tell you the time: it's [time]."
+          ]
+      },
+      {
+          "intent": "Food",
+          "responses": [
+              "How about a nice pizza?",
+              "Tacos are always a great choice!",
+              "You can't go wrong with pasta!",
+              "Feeling healthy? A salad could be great!",
+              "Try a burger, classic and delicious!",
+              "Maybe some sushi?",
+              "How about some homemade soup?",
+              "Breakfast for dinner is always fun!",
+              "Craving something sweet? Ice cream time!",
+              "If you're unsure, just go with your favorite!"
+          ]
       }
-    ]
-  }
+  ]
+}
