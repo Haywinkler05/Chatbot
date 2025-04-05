@@ -1,2 +1,2 @@
 # AIProject1
- This is a project for my AI course making a simple chatbot using machine learning.
+This was a project for my AI class where I built out a chatbot using Rule Based and Naive Bayes classifer.
