@@ -1,6 +1,5 @@
 import json
 import string
-from sklearn.feature_extraction.text import TfidfVectorizer
 from collections import Counter
 import math
 import random

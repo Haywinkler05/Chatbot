@@ -27,7 +27,7 @@ def main():
         while(1):
             chat.naiveBayes()
             if("bye" in chat.getUserInput()):
-                break
+                break 
     else:
         from ruleBased import responses
         while(1):
